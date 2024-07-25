@@ -1,0 +1,49 @@
+https://www.youtube.com/watch?v=w5So_Ih7r9M
+
+DJANGO - TRABALHA NA ARQUITETURA MVT (M-models V-view T-template/VIEW do mvc)
+windows:
+1-criar o ambiente virtual:
+	python -m venv venv 
+2-ativar:
+	venv\Scripts\Activate
+caso algum comando retorne um erro de permissão execute o codigo e tente novamente
+	Set -ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+
+3-instalação do django
+	pip install django
+	pip install pillow
+---------------
+linux
+ python3 -m venv venv
+ source venv/bin/activate
+
+**********
+1-instalar o django
+	pip install django
+obs.:agora temos acesso ao comando para rodar a aplicação django.
+
+2-Acesso a aplicação
+	django-admin startproject core .
+obs.: core é o nome do projeto e o ponto e para nao criar subpasta
+
+3-comando para rodar a aplicação no windows (não é obrigatório)
+	python manage.py runserver
+	
+4-criação do App produto (Exemplo de como criar uma aplicação de sistema de delivery)
+  	python manage.py startapp produtos
+5-comando para migrar as tabelas no banco de dados de app que existe na aplicação.
+	python manage.py migrate
+Obs.: Os app que estão instalado no django (arquivo settings.py) precisa de algumas tabela no bd para funcionarem corretamente.
+
+6-Após construir a classe produto é necessário executar o comando abaixo para criar a tabela no banco de dados.
+	python manage.py makemigrations
+Obs.: Esse comando criar um arquivo de especificação de quais tabela no banco de dados deve ser criada.
+produto/migrations/000_initial.py
+
+Em seguida rode novamnte o comando: "python manage.py migrate" para criação da tabela no bd.
+
+7-Comando para criar um usuário administrador para acessar http://127.0.0.1:8000/admin/
+	python manage.py createsuperuser
+Obs.: Informe nome, e-mail e senha do usuário.
+
+8-

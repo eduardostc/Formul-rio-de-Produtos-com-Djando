@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Pagina de Produtos</title>
+  </head>
+  <body>
+    <br>
+    <div class="container">
+        <h1>O seus produtos são:</h1>
+        <hr>
+        
+        <form action="/produtos/listar/" method="GET">
+           <input type="text" name="nome_filtrar" class="form-control">
+           <input type="submit" value="Filtrar" class="btn btn-primary">
+        </form>
+
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Nome Produto</th>
+                <th scope="col">Preço do produto</th>
+                <th scope="col">Ação</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for produto in produtos %}
+                <tr>
+                  <td>{{produto.nome_produto}}</td>
+                  <td>{{produto.preco}}</td>
+                  <td><a href="/produtos/deletar/{{produto.id}}" class="btn btn-danger">Remover Produto</a></td>
+                </tr>           
+              {% endfor %}       
+            </tbody>
+          </table>
+
+    </div>
+   
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
+</html>
